@@ -1,24 +1,43 @@
 <?php
-    static class DB {
-        
-        function connect() {
+     class DB {
+
+        static function getConnection() {
+            // $mysqli = new mysqli("", "", "", "");
+            // $mysqli = new $mysqli("", "", "", "");
+            return $mysqli;
+        }
+
+        static function select($statement) {
+            $conn = DB::getConnection();
+            $result = $conn->prepare($statement);
+            $result->execute();
+            return $result;
+        }
+
+        static function bind($fields) {
 
         }
 
-        function select() {
+        static function insert($statement) {
 
         }
 
-        function insert() {
+        static function update($statement) {
 
         }
 
-        function update() {
-
-        }
-
-        function delete() {
+        static function delete($statement) {
 
         }
     }
 ?>
+
+
+<!--
+// this is essentially how to get DB results
+$rentals = DB::select('select title from rental;');
+$rentals->bind_result($title);
+while($rentals->fetch()){
+    echo $title;
+}
+$rentals->close(); -->

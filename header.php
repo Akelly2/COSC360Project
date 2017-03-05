@@ -7,7 +7,6 @@
     <a class="HFlink" href="login.php">Login</a>
     <a class="HFlink" href="register.php">Register</a>
 </header>
-
 <?php
 
 ?>

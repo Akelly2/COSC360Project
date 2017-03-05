@@ -22,8 +22,14 @@ footer {
     color: #e9e8e8;
 }
 
+.HFlink:visited {
+    margin: 0 1em 0 1em;
+    color: #e9e8e8;
+}
+
 .HFlink:hover {
-    color: #ffffff;
+    color: #fff;
+    text-decoration: none;
 }
 
 body {
@@ -37,9 +43,25 @@ h2 {
 }
 
 a {
+    color: #283680;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+a:visited {
+    color: #030095;
+}
+
+.terms {
+    padding: 2em;
+    width: 40%;
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+    text-align: center;
+    border: 1px solid #d4d4d4;
 }
