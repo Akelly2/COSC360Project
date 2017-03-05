@@ -13,9 +13,12 @@ footer {
     bottom: 0;
 }
 
+.terms {
+    font-size: .7em;
+}
+
 .HFlink  {
     margin: 0 1em 0 1em;
-    text-decoration: none;
     color: #e9e8e8;
 }
 
@@ -33,15 +36,6 @@ h2 {
     margin: 2em 0 1em 0;
 }
 
-input[type="submit"], input[type="reset"] {
-    margin-bottom: 1em;
-    width: 200px;
-    background-color: #19afbe;
-    border-color: #19afbe;
-    color: #ffffff;
-}
-
-input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #188c98;
-    border-color: #188c98;
+a {
+    text-decoration: none;
 }

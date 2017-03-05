@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +13,7 @@
 
         <div id="main">
             <form id="mainform" method="POST" action="app/registerProcess.php">
-                <h2>Join </h2>
+                <h2>Join</h2>
                 <div class="formE">
                     <label>Name</label>
                     <input type="text" name="name" placeholder="Name"/>
@@ -34,12 +33,16 @@
                     <label>Confirm Password</label>
                     <input type="password" name="confirm" placeholder="Confirm" />
                 </div>
+
+                <div class="terms">
+                    <label>I agree to the <a href="terms.php">Terms of Use  </a></label>
+                    <input type="checkbox" name="accept" />
+                </div>
                 <br />
                 <!--
                 still need image upload
             -->
                 <input type="submit" value="Register" />
-                <input type="reset" value="Clear" />
             </form>
         </div>
         <?php include 'footer.php'; ?>
