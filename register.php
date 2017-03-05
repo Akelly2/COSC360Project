@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="style/reset.css" />
         <link rel="stylesheet" href="style/form.css" />
         <link rel="stylesheet" href="style/general.css" />
+        <script type="text/javascript" src="script/registerValidation.js"></script>
     </head>
     <body>
         <?php include 'header.php'; ?>
 
         <div id="main">
             <form id="mainform" method="POST" action="app/registerProcess.php">
-                <h2>Join</h2>
+                <h2>Register</h2>
                 <div class="formE">
                     <label>Name</label>
                     <input type="text" name="name" placeholder="Name"/>

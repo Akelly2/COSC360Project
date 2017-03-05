@@ -9,8 +9,6 @@
     margin-bottom: 20px;
 }
 
-
-
 input[type="text"], input[type="email"], input[type="password"] {
     padding-left: 0.5em;
     display: block;
@@ -40,4 +38,12 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #188c98;
     border-color: #188c98;
     cursor:pointer;
+}
+
+.highlight {
+    box-shadow: 0 0 4px #f20505;
+}
+
+.no-highlight {
+    box-shadow: none;
 }
