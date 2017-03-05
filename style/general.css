@@ -33,8 +33,9 @@ footer {
 }
 
 body {
-    font-family: "Trebuchet MS", "Lucida Grande", Tahoma, sans-serif;
+    font-family: Arial, "Trebuchet MS", "Lucida Grande", Tahoma, sans-serif;
     font-size: 1.4em;
+    color: #4d4d4d
 }
 
 h2 {
@@ -55,7 +56,8 @@ a:visited {
     color: #030095;
 }
 
-.terms {
+.termsBox {
+    font-size: .7em;
     padding: 2em;
     width: 40%;
     max-width: 30em;

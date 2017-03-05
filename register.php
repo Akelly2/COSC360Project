@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="terms">
-                    <label>I agree to the <a href="terms.php">Terms of Service</a></label>
+                    <label>I agree to the <a href="terms.php">Terms of Use</a></label>
                     <input type="checkbox" name="accept" />
                 </div>
                 <br />

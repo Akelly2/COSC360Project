@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php include 'header.php'; ?>
-            <div class="terms">
+            <div class="termsBox">
                 <p>
                     By using this site I agree to use it in postive ways
                      that are beneficial to humanity as a whole.

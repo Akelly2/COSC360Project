@@ -27,7 +27,7 @@
                 </div>
 
                 <br />
-                <input class="button" type="submit" value="Submit" />
+                <input class="button" type="submit" value="Go" />
 
             </form>
         </div>

@@ -12,32 +12,33 @@
 input[type="text"], input[type="email"], input[type="password"] {
     padding-left: 0.5em;
     display: block;
-    height: 40px;
+    height: 38px;
     width: 100%;
     font-size: .8em;
     border-radius: 5px;
-    border: 2px solid #e2e2e2;
+    border: 1px solid #e2e2e2;
     color: #717171;
 }
 
 input:focus {
     border-color: #bebebe;
+    box-shadow: 0 0 2px #bebebe;
 }
 
 input[type="submit"], input[type="reset"] {
     margin-bottom: 1em;
     width: 150px;
     background-color: #19afbe;
-    border-color: #19afbe;
-    border-radius: 6px;
-    padding: .2em 0 .2em 0;
+    border: 1px solid #028996;
+    border-radius: 5px;
+    padding: .1em 0 .25em 0;
     color: #ffffff;
 }
 
 input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #188c98;
-    border-color: #188c98;
-    cursor:pointer;
+    background-color: #03a1b1;
+    cursor: pointer;
+    box-shadow: 0 0 6px #bebebe;
 }
 
 .highlight {
