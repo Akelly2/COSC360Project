@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="style/general.css" />
   </head>
   <body>
-      <?php include 'header.php';
-
-            ?>
+      <?php include 'header.php'; ?>
 
 
 

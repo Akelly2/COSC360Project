@@ -1,12 +1,14 @@
 #mainform {
     width: 15em;
     margin: 1em auto 0 auto;
+    font-size: 1.2em;
 }
 
 .formE {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
+    font-size: 1.2em;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -16,29 +18,43 @@ input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     font-size: .8em;
     border-radius: 5px;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #cfcccc;
     color: #717171;
 }
 
-input:focus {
+input:focus, textarea:focus {
     border-color: #bebebe;
-    box-shadow: 0 0 2px #bebebe;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    transition: box-shadow 0.07s ease-in-out;
+}
+
+input[type="file"] {
 }
 
 input[type="submit"], input[type="reset"] {
     margin-bottom: 1em;
     width: 150px;
-    background-color: #19afbe;
-    border: 1px solid #028996;
+    background-color: #03afc1;
+    border: 1px solid #0293a1;
     border-radius: 5px;
     padding: .1em 0 .25em 0;
     color: #ffffff;
 }
 
 input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #03a1b1;
+    background-color: #03b9cb;
     cursor: pointer;
-    box-shadow: 0 0 6px #bebebe;
+    box-shadow: 0 0 4px #7c7979;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+textarea {
+    border: 1px solid #cfcccc;
+    border-color: #bebebe;
+    width: 400px;
+    height: 300px;
+    padding: 0.4em;
+    font-family: Arial;
 }
 
 .highlight {
@@ -47,4 +63,8 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
 .no-highlight {
     box-shadow: none;
+}
+
+.terms, input[type="file"], textarea {
+    font-size: .7em;
 }

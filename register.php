@@ -26,6 +26,11 @@
                 </div>
 
                 <div class="formE">
+                    <label>Profile picture</label>
+                    <input type="file" name="image" placeholder="Image" />
+                </div>
+
+                <div class="formE">
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Password" />
                 </div>
