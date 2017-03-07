@@ -50,8 +50,6 @@
                     <p id="pleaseaccept"></p>
                 </div>
 
-                <br />
-
                 <input type="submit" value="Register" />
             </form>
         </div>

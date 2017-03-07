@@ -2,6 +2,7 @@
     width: 18em;
     margin: 1em auto 0 auto;
     font-size: 1em;
+    padding: 1em;
 }
 
 .formE {
@@ -43,6 +44,7 @@ input[type="file"] {
 
 input[type="submit"], input[type="reset"] {
     margin-bottom: 1em;
+    margin-top: 1em;
     width: 150px;
     background-color: #03afc1;
     border: 1px solid #0293a1;
@@ -75,6 +77,10 @@ textarea {
     box-shadow: none;
 }
 
+.terms {
+    padding-bottom:
+}
+
 .terms, input[type="file"], textarea {
-    font-size: .7em;
+    font-size: .9em;
 }

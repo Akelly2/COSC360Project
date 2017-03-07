@@ -31,8 +31,6 @@
                     </p>
                 </div>
 
-                <br />
-
 
                 <input class="button" type="submit" value="Go" />
 

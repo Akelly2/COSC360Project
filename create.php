@@ -10,7 +10,7 @@
     </head>
     <body>
         <?php include 'header.php'; ?>
-                <div id="create">
+                <div id="main">
                     <form id="mainform" method="POST" action="app/registerProcess.php">
                         <h2>Create post</h2>
                         <div class="formE">
