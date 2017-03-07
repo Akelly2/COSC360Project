@@ -3,19 +3,24 @@ document.addEventListener('DOMContentLoaded', checkSubmit, false);
 function checkSubmit() {
     document.forms[0].addEventListener("submit", validate);
 	document.forms[0].elements['email'].oninput = function() {
-		document.forms[0].elements['email'].className = "no-highlight";
+        document.getElementById("pleasefillemail")
+        .innerHTML = "";
 	}
 	document.forms[0].elements['name'].oninput = function() {
-		document.forms[0].elements['name'].className = "no-highlight";
+        document.getElementById("pleasefillname")
+        .innerHTML = "";
 	}
     document.forms[0].elements['password'].oninput = function() {
-		document.forms[0].elements['password'].className = "no-highlight";
+        document.getElementById("pleasefillpass")
+        .innerHTML = "";
 	}
     document.forms[0].elements['confirm'].oninput = function() {
-		document.forms[0].elements['confirm'].className = "no-highlight";
+        document.getElementById("pleaseconfirm")
+        .innerHTML = "";
 	}
 	document.forms[0].elements['accept'].onclick = function() {
-		document.forms[0].elements['accept'].className = "no-highlight";
+        document.getElementById("pleaseaccept")
+        .innerHTML = "";
 	}
 }
 
@@ -29,27 +34,32 @@ function validate(e) {
 
     if (accept.checked === false) {
         e.preventDefault();
-        form.elements['accept'].className = "highlight";
+        document.getElementById("pleaseaccept")
+        .innerHTML = "Please accept the Terms.";
     }
 
     if (name == null || name == '') {
         e.preventDefault();
-		form.elements['name'].className = "highlight";
+        document.getElementById("pleasefillname")
+        .innerHTML = "Please enter your name.";
 	}
 
-    if (email == null || email == '') {
+    if (email == null || email == '' || !email.includes('@')) {
         e.preventDefault();
-        form.elements['email'].className = "highlight";
+        document.getElementById("pleasefillemail")
+        .innerHTML = "Please enter a valid email.";
     }
 
     if (password == null || password == '') {
         e.preventDefault();
-		form.elements['password'].className = "highlight";
+        document.getElementById("pleasefillpass")
+        .innerHTML = "Please enter a valid password.";
 	}
 
     if (confirm == null || confirm == '') {
         e.preventDefault();
-        form.elements['confirm'].className = "highlight";
+        document.getElementById("pleaseconfirm")
+        .innerHTML = "Please confirm your password.";
     }
     return true;
 }

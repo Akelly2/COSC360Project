@@ -1,14 +1,24 @@
 #mainform {
-    width: 15em;
+    width: 18em;
     margin: 1em auto 0 auto;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .formE {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    font-size: 1.2em;
+}
+
+label {
+    font-size: 1.3em;
+}
+
+#pleasefillemail, #pleasefillpass, #pleaseconfirm,
+#pleaseaccept, #pleasefillname {
+    padding: .1em;
+    height: 15px;
+    color: #9c2d2d;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -16,7 +26,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     display: block;
     height: 38px;
     width: 100%;
-    font-size: .8em;
+    font-size: 1em;
     border-radius: 5px;
     border: 1px solid #cfcccc;
     color: #717171;

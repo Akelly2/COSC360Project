@@ -18,11 +18,13 @@
                 <div class="formE">
                     <label>Name</label>
                     <input type="text" name="name" placeholder="Name"/>
+                    <p id="pleasefillname"></p>
                 </div>
 
                 <div class="formE">
                     <label>Email</label>
                     <input type="email" name="email" placeholder="Email"/>
+                    <p id="pleasefillemail"></p>
                 </div>
 
                 <div class="formE">
@@ -33,21 +35,23 @@
                 <div class="formE">
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Password" />
+                    <p id="pleasefillpass"></p>
                 </div>
 
                 <div class="formE">
                     <label>Confirm Password</label>
                     <input type="password" name="confirm" placeholder="Confirm" />
+                    <p id="pleaseconfirm"></p>
                 </div>
 
                 <div class="terms">
                     <label>I agree to the <a href="terms.php">Terms of Use</a></label>
                     <input type="checkbox" name="accept" />
+                    <p id="pleaseaccept"></p>
                 </div>
+
                 <br />
-                <!--
-                still need image upload
-            -->
+
                 <input type="submit" value="Register" />
             </form>
         </div>
