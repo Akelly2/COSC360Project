@@ -7,9 +7,9 @@ header, footer {
 }
 
 footer {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
+    clear: right;
+    width: 100;
+    margin-top: 1em;
 }
 
 .HFlink  {
@@ -32,10 +32,34 @@ body {
     color: #4d4d4d;
 }
 
-#main {
+#main, #links {
     margin: 1em;
     background-color: #f6f4f4;
+    border: 1px solid #e7e7e7;
     border-radius: 8px;
+    min-height: 800px;
+}
+
+#links {
+    position: relative;
+    float: left;
+    width: 60%;
+    margin-right: 0.5em;
+    padding: 1em;
+    height: 600px;
+}
+
+#sidebar {
+    min-width: 150px;
+    max-width: 250px;
+    padding: 1em;
+    margin: 1em 1em 1em 0.5em;
+    background-color: #f6f4f4;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    float: right;
+    width: 20%;
+    min-height: 800px;
 }
 
 h2 {

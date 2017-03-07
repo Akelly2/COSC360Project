@@ -10,10 +10,12 @@
     <body>
         <?php include 'header.php'; ?>
         <div id="sidebar">
-
+            <div>
+                Some content
+            </div>
         </div>
-        <div id="main">
-            
+        <div id="links">
+            some content
         </div>
 
 
