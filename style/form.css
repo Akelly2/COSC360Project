@@ -19,7 +19,7 @@ label {
 #pleaseaccept, #pleasefillname {
     padding: .1em;
     height: 15px;
-    color: #9c2d2d;
+    color: #cd0101;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -45,11 +45,11 @@ input[type="file"] {
 input[type="submit"], input[type="reset"] {
     margin-bottom: 1em;
     margin-top: 1em;
-    width: 150px;
+    width: 120px;
     background-color: #03afc1;
     border: 1px solid #0293a1;
     border-radius: 5px;
-    padding: .1em 0 .25em 0;
+    padding: .2em 0 .25em 0;
     color: #ffffff;
 }
 
