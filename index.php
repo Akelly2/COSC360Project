@@ -10,14 +10,11 @@
     <body>
         <?php include 'header.php'; ?>
         <div id="sidebar">
-            <div>
-                Some content
-            </div>
+
         </div>
         <div id="links">
-            some content
-        </div>
 
+        </div>
 
         <?php include 'footer.php' ?>
     </body>
