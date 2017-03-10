@@ -11,7 +11,7 @@
     <body>
         <?php include 'header.php'; ?>
             <div id="main">
-                <form id="mainform" method="POST" action="app/registerProcess.php">
+                <form id="create" method="POST" action="app/registerProcess.php">
                     <h2>Create post</h2>
                     <div class="formE">
                         <label>Title</label>
