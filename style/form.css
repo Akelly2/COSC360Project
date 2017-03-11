@@ -69,9 +69,8 @@ input[type="submit"], input[type="reset"] {
 input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #03b9cb;
     cursor: pointer;
-    box-shadow: 0 0 10px #a2a2a2;
-    transition: box-shadow 0.2s ease-in-out;
-    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    transition: box-shadow .1s ease-in-out;
 }
 
 textarea {
