@@ -18,8 +18,8 @@
                         <input type="text" name="name" placeholder="Name"/>
                     </div>
                     <div class="formE">
-                        <label>Text</label>
-                        <textarea></textarea>
+                        <label>Content</label>
+                        <textarea name="content"></textarea>
                     </div>
                     <input type="submit" value="Submit" />
                 </form>
