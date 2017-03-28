@@ -1,37 +1,39 @@
 create table User (
-    uid int AUTO_INCREMENT,
+    userid int AUTO_INCREMENT,
     name varchar(255),
     username varchar(255),
     email varchar(255),
     passhash varchar(255),
     isadmin tinyint(1),
-    primary key (uid)
+    primary key (userid)
 );
 
 create table Post (
-    pid int AUTO_INCREMENT,
+    postid int AUTO_INCREMENT,
     title varchar(255),
     content text,
-    uid int,
-    primary key (pid),
-    foreign key(uid)
-        references User(uid)
+    userid int,
+    primary key (postid),
+    foreign key(userid)
+        references User(userid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE
 );
 
 create table Comment (
-    cid int auto_increment,
+    commentid int auto_increment,
     content text,
-    uid int,
-    pid int,
-    primary key (cid),
-    foreign key(uid)
-        references User(uid)
+    isparent boolean,
+    parentid int,
+    userid int,
+    postid int,
+    primary key (commentid),
+    foreign key(userid)
+        references User(userid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
-    foreign key(pid)
-        references Post(pid)
+    foreign key(postid)
+        references Post(postid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE
 );
