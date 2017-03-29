@@ -1,10 +1,13 @@
+drop table Post;
+drop table Comment;
+drop table User;
+
 create table User (
     userid int AUTO_INCREMENT,
-    name varchar(255),
     username varchar(255),
     email varchar(255),
-    passhash varchar(255),
-    isadmin tinyint(1),
+    password varchar(255),
+    isadmin boolean,
     primary key (userid)
 );
 

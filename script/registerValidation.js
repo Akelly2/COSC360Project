@@ -6,7 +6,7 @@ function checkSubmit() {
         document.getElementById("pleasefillemail")
         .innerHTML = "";
 	}
-	document.forms[0].elements['name'].oninput = function() {
+	document.forms[0].elements['username'].oninput = function() {
         document.getElementById("pleasefillname")
         .innerHTML = "";
 	}
@@ -26,7 +26,7 @@ function checkSubmit() {
 
 function validate(e) {
     var form = document.getElementById('mainform');
-    var name = form.elements['name'].value;
+    var name = form.elements['username'].value;
     var email = form.elements['email'].value;
     var password = form.elements['password'].value;
     var confirm = form.elements['confirm'].value;
@@ -41,7 +41,7 @@ function validate(e) {
     if (name == null || name == '') {
         e.preventDefault();
         document.getElementById("pleasefillname")
-        .innerHTML = "Please enter your name.";
+        .innerHTML = "Please enter a valid username.";
 	}
 
     if (email == null || email == '' || !email.includes('@')) {

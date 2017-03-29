@@ -12,7 +12,7 @@
 <?php include 'header.php'; ?>
 
 <div id="about">
-    <img id="authorimage" src="images/16615300.png" />
+    <img id="authorimage" src="userimages/16615300.png" />
     <p id="autherdesc">
         The author of this site looks like this. He created this site for
         a computer science class related to web programming.

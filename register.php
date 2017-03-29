@@ -1,3 +1,9 @@
+<?php
+if ( isset($_SESSION['username']) ) {
+    header('Location: index.php');
+}
+
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,11 +19,11 @@
         <?php include 'header.php'; ?>
 
         <div id="main">
-            <form id="mainform" method="POST" action="app/registerProcess.php">
+            <form id="mainform" method="POST" action="app/registerProcess.php" enctype="multipart/form-data">
                 <h2>Register</h2>
                 <div class="formE">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Name"/>
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Name"/>
                     <p id="pleasefillname"></p>
                 </div>
 
@@ -28,8 +34,8 @@
                 </div>
 
                 <div class="formE">
-                    <label>Profile picture</label>
-                    <input type="file" name="image" placeholder="Image" />
+                    <label>Profile image</label>
+                    <input type="file" name="userImage" id="userImage" placeholder="Image" />
                 </div>
 
                 <div class="formE">
