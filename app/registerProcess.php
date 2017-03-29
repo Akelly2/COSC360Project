@@ -1,6 +1,9 @@
 <?php
 include("DB.php");
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
@@ -30,6 +33,7 @@ if ( isset($_POST["username"])
         } else {
             if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {
                 $check = getimagesize($_FILES["userImage"]["tmp_name"]);
+                $imageFileType = pathinfo($_FILES["userImage"]["tmp_name"], PATHINFO_EXTENSION);
                 if($check !== false) {
                 //   echo "File is an image - " . $check["mime"] . ".";
                   $uploadOk = 1;

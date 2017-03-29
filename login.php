@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+if ( !empty($_SESSION['forumuser']) ) {
+    header('Location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,12 +19,12 @@
         <?php include 'header.php'; ?>
         <div id="main">
 
-            <form id="mainform" method="POST" action="processLogin.php">
+            <form id="mainform" method="POST" action="app/loginProcess.php">
                 <h2>Login</h2>
 
                 <div class="formE">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Email"/>
+                    <input type="text" name="cred" placeholder=""/>
                     <p id="pleasefillemail">
                     </p>
                 </div>

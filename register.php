@@ -1,8 +1,9 @@
 <?php
+session_start();
 if ( !empty($_SESSION['forumuser']) ) {
     header('Location: index.php');
 }
- ?>
+?>
 <!DOCTYPE html>
 <html>
     <head>

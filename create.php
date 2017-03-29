@@ -1,3 +1,13 @@
+<?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
+if ( empty($_SESSION['forumuser']) ) {
+    $_POST['create'] = true;
+    header('Location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>

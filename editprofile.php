@@ -16,7 +16,7 @@
                 <h2>Edit your profile</h2>
 
                 <div class="formE">
-                    <label>Change rofile picture</label>
+                    <label>Change profile picture</label>
                     <input type="file" name="image" placeholder="Image" />
                 </div>
 
