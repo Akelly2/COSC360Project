@@ -31,9 +31,27 @@ footer {
     text-decoration: none;
 }
 
+.speciallink {
+    background-color: #03afc1;
+    /*border: 1px solid #0293a1;*/
+    padding: .5em 2em .5em 2em;
+    border-radius: 5px;
+}
+
+.speciallink:hover {
+    background-color: #03b9cb;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.speciallink:visited {
+    color: #ffffff;
+}
+
 body {
     font-family: Arial, "Trebuchet MS", "Lucida Grande", Tahoma, sans-serif;
     color: #4d4d4d;
+    font-size: .95em;
 }
 
 #about {

@@ -20,6 +20,7 @@ if ( isset($_POST["cred"]) && isset($_POST["password"]) ) {
             if ( md5($_POST["password"]) == $row[2]
             && ( $_POST['cred'] == $row[1] || $_POST['cred'] == $row[0] ) ) {
                 $_SESSION['forumuser'] = $row[1];
+                $_SESSION['userid'] = $userid;
                 header('Location: ../index.php');
 
             } else {

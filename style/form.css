@@ -55,18 +55,20 @@ input:focus, textarea:focus {
 input[type="file"] {
 }
 
-.createbutton, input[type="submit"], input[type="reset"] {
+
+input[type="submit"], input[type="reset"] {
+    text-decoration: none;
     margin-bottom: 1em;
     margin-top: 1em;
     width: 120px;
     background-color: #03afc1;
-    border: 1px solid #0293a1;
+    /*border: 1px solid #0293a1;*/
     border-radius: 5px;
-    padding: .2em 0 .25em 0;
+    padding: .3em 0 .5em 0;
     color: #ffffff;
 }
 
-.createbutton, input[type="submit"]:hover, input[type="reset"]:hover {
+input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #03b9cb;
     cursor: pointer;
 }

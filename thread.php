@@ -4,14 +4,16 @@
         <meta charset="utf-8">
         <title>Title here</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../style/reset.css" />
-        <link rel="stylesheet" href="../style/general.css" />
+        <link rel="stylesheet" href="style/reset.css" />
+        <link rel="stylesheet" href="style/form.css" />
+        <link rel="stylesheet" href="style/general.css" />
     </head>
     <body>
-        <?php include '../header.php'; ?>
+        <?php include 'header.php'; ?>
         <div id="sidebar">
-            <a href="create.php">Create</a>
+            <a class="speciallink" href="create.php">Create</a>
         </div>
+        <?php // Logic is needed here to show entire comment threads ?>
         <div id="links">
             <div id="comment">
                 <p>An example of a pleasent comment.</p>
@@ -22,6 +24,6 @@
                 </div>
             </div>
         </div>
-        <?php include '../footer.php' ?>
+        <?php include 'footer.php' ?>
     </body>
 </html>

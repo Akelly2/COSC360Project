@@ -15,9 +15,10 @@ create table Post (
     postid int AUTO_INCREMENT,
     title varchar(255),
     content text,
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     userid int,
     primary key (postid),
-    foreign key(userid)
+    foreign key (userid)
         references User(userid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE
@@ -28,6 +29,7 @@ create table Comment (
     content text,
     isparent boolean,
     parentid int,
+    ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     userid int,
     postid int,
     primary key (commentid),

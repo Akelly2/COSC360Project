@@ -24,7 +24,7 @@ if ( isset($_POST['title']) && isset($_POST['content'])) {
     $stmt->bind_result($id);
     $stmt->fetch();
     $postid = $id;
-    header("Location: ../thread.php?$postid");
+    header("Location: ../thread.php?postid=$postid");
 }
 
 ?>

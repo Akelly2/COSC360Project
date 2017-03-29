@@ -11,7 +11,7 @@
     <body>
         <?php include 'header.php'; ?>
         <div id="sidebar">
-            <a class="createbutton" href="create.php">Create</a>
+            <a class="speciallink" href="create.php">Create</a>
         </div>
         <div id="links">
             <div class="submission">
