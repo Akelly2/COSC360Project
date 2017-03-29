@@ -1,8 +1,7 @@
 <?php
-if ( isset($_SESSION['username']) ) {
+if ( !empty($_SESSION['forumuser']) ) {
     header('Location: index.php');
 }
-
  ?>
 <!DOCTYPE html>
 <html>

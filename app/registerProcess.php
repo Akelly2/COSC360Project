@@ -1,9 +1,9 @@
 <?php
+include("DB.php");
 session_start();
-$conn = mysqli_connect("localhost", "root", "zsdvl-23", "project") or
-  die ("<p>DB connection failed. Talk to your administrator.</p>");
 
-
+$conn = DB::getConnection() or
+  die ("<p>Data problem. Talk to your administrator.</p>");
 
 if ( isset($_POST["username"])
     && isset($_POST["email"])
@@ -28,7 +28,7 @@ if ( isset($_POST["username"])
                 header('Location: ../register.php?inputerr=3');
             }
         } else {
-            if( $_FILES["userImage"] !== null ) {
+            if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {
                 $check = getimagesize($_FILES["userImage"]["tmp_name"]);
                 if($check !== false) {
                 //   echo "File is an image - " . $check["mime"] . ".";
@@ -38,11 +38,7 @@ if ( isset($_POST["username"])
                   $uploadOk = 0;
                 }
                 $imagedata = file_get_contents($_FILES['userImage']['tmp_name']);
-                // Check if file already exists
-                //   if (file_exists($target_file)) {
-                    //   echo "Sorry, file already exists.";
-                    //   $uploadOk = 0;
-                //   }
+
                 // Check file size
                 if ($_FILES["userImage"]["size"] > 500000) {
                      header('Location: ../register.php?inputerr=4');
@@ -78,9 +74,9 @@ if ( isset($_POST["username"])
             $stmt->bind_result($id);
             $stmt->fetch();
             $userid = $id;
-            echo $id;
+            // echo $id;
             mysqli_stmt_close($stmt);
-
+            $_SESSION['forumuser'] = $_POST["username"];
             if (isset($_FILES["userImage"])) {
                 // prepare the user image for upload
                 $target_dir = "../userimages/";
@@ -100,7 +96,6 @@ if ( isset($_POST["username"])
                     }
                 }
 
-
                 if ($uploadOk == 1) {
                     if (move_uploaded_file($_FILES["userImage"]["tmp_name"], $target_file)) {
                         header("Location: ../index.php");
@@ -109,6 +104,7 @@ if ( isset($_POST["username"])
                     }
                 }
             }
+            header("Location: ../index.php");
         }
     } else {
         echo 'There was a problem with the entered data.';
