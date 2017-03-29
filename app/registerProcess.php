@@ -22,13 +22,13 @@ if ( isset($_POST["username"])
         if ($row !== null) {
             if (in_array($_POST["email"], $row) && in_array($_POST["username"], $row)) {
                 // email and username exist error
-                header('Location: ../register.php?inputerr=1');
+                header('Location: ../register.php?registererr=1');
             } elseif (in_array($_POST["username"], $row)) {
                 // username exists error
-                header('Location: ../register.php?inputerr=2');
+                header('Location: ../register.php?registererr=2');
             } elseif (in_array($_POST["email"], $row)) {
                 // email exists error
-                header('Location: ../register.php?inputerr=3');
+                header('Location: ../register.php?registererr=3');
             }
         } else {
             if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {
@@ -45,21 +45,18 @@ if ( isset($_POST["username"])
 
                 // Check file size
                 if ($_FILES["userImage"]["size"] > 500000) {
-                     header('Location: ../register.php?inputerr=4');
+                     header('Location: ../register.php?registererr=4');
                     $uploadOk = 0;
                 }
                 // run the statement
                 if( $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif" ) {
                     // file type not supported error
-                    header('Location: ../register.php?inputerr=5');
+                    header('Location: ../register.php?registererr=5');
                     $uploadOk = 0;
                 }
                 // Check if $uploadOk is set to 0 by an error
-                if ($uploadOk == 0) {
-                    header('Location: ../register.php?inputerr=6');
-                // if everything is ok, try to upload file
-                }
+                
             }
 
             mysqli_free_result($result);
@@ -97,6 +94,7 @@ if ( isset($_POST["username"])
                     } else {
                     //   echo 'Problem';
                       $uploadOk = 0;
+                      header('Location: ../register.php?registererr=6');
                     }
                 }
 

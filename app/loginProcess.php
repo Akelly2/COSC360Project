@@ -17,12 +17,13 @@ if ( isset($_POST["cred"]) && isset($_POST["password"]) ) {
         $row = $result->fetch_array(MYSQLI_NUM);
         // print_r($row);
         if ($row !== null) {
-            if ( md5($_POST["password"]) == $row[2] && ( $_POST['cred'] == $row[1] || $_POST['cred'] == $row[0] ) ){
+            if ( md5($_POST["password"]) == $row[2]
+            && ( $_POST['cred'] == $row[1] || $_POST['cred'] == $row[0] ) ) {
                 $_SESSION['forumuser'] = $row[1];
                 header('Location: ../index.php');
 
             } else {
-                header('Location: ../login.php?loginerr=1');
+                header('Location: ../login.php?loginerr=3');
                 // echo 2;
             }
         } else {
@@ -30,7 +31,7 @@ if ( isset($_POST["cred"]) && isset($_POST["password"]) ) {
             // echo 3;
         }
     } else {
-        header('Location: ../login.php?loginerr=3');
+        header('Location: ../login.php?loginerr=1');
         // echo 4;
     }
 }
