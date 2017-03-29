@@ -34,7 +34,7 @@ if ( isset($_POST["username"])
             if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {
                 $check = getimagesize($_FILES["userImage"]["tmp_name"]);
                 $imageFileType = pathinfo($_FILES["userImage"]["tmp_name"], PATHINFO_EXTENSION);
-                if($check !== false) {
+                if ($check !== false) {
                 //   echo "File is an image - " . $check["mime"] . ".";
                   $uploadOk = 1;
                 } else {
@@ -56,7 +56,7 @@ if ( isset($_POST["username"])
                     $uploadOk = 0;
                 }
                 // Check if $uploadOk is set to 0 by an error
-                
+
             }
 
             mysqli_free_result($result);
@@ -78,6 +78,7 @@ if ( isset($_POST["username"])
             // echo $id;
             mysqli_stmt_close($stmt);
             $_SESSION['forumuser'] = $_POST["username"];
+            $_SESSION['userid'] = $userid;
             if (isset($_FILES["userImage"])) {
                 // prepare the user image for upload
                 $target_dir = "../userimages/";
