@@ -15,7 +15,7 @@
         </div>
         <div id="links">
             <div class="submission">
-                <h3>Check out this sweet pencil.</h3>
+                <h4>Check out this sweet pencil.</h4>
                 <p>
                     Submitted 5 hours ago by Joey K.
                 </p>

@@ -9,7 +9,7 @@ header, footer {
 footer {
     width: 100%;
     clear: right;
-	position: absolute;
+	position: fixed;
 	margin-top:	1em;
     bottom: 0;
 }
@@ -67,17 +67,16 @@ body {
 }
 
 #autherdesc {
-
 }
 
-#links, #sidebar {
+#main,#links, #comments, #sidebar {
     background-color: #f6f4f4;
     border: 1px solid #e7e7e7;
     border-radius: 8px;
     min-height: 800px;
 }
 
-#links {
+#main, #links, #comments {
     position: relative;
     margin: .5em .5em 0 .5em;
     //width: 		 60%;
@@ -97,17 +96,26 @@ body {
     height: 820px;
 }
 
-#submission {
-    padding: 0.5em;
+#submission p {
+    font-size: 0.8em;
+    padding-bottom: .8em;
+
 }
 
-#submission>p {
+#submission{
+    padding: 1em;
+    border: 1px solid #d4d4d4;
+}
+
+#comments p {
     font-size: 0.8em;
-    padding: 0.2em;
+    padding-bottom: .8em;
+
 }
 
 #comment{
     padding: 1em;
+    border: 1px solid #d4d4d4;
 }
 
 h2 {
@@ -116,7 +124,12 @@ h2 {
 }
 
 h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
+    padding-bottom: 1em;
+}
+
+h4 {
+    font-size: 1.1em;
 }
 
 a {
