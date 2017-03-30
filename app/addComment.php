@@ -19,11 +19,11 @@ $stmt->execute();
 
 $commentid = $conn->insert_id;
 
-$sql = "UPDATE Comment SET threadid = ?";
-$stmt = $conn->prepare($newsql);
-$stmt->bind_param('i', $commentid);
+$sql = "UPDATE Comment SET threadid = ? WHERE commentid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('ii', $commentid, $commentid);
 if ($stmt->execute()) {
-    header("Location: ../thread?postid=" . $postid . "");
+    header("Location: ../thread?postid=" . $postid);
 }
 
  ?>
