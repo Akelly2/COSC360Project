@@ -73,13 +73,11 @@ mysqli_free_result($result);
             </p>
         </div>
 
-        <h3>Replies</h3>
         <section class="replies">
+            <h3>Replies</h3>
 
         <?php
-
         // loop through each top level comment
-
         foreach ($parents as $parent) {
              ?>
             <div class="parent">
@@ -107,8 +105,7 @@ mysqli_free_result($result);
                     <p>Submitted <?= $descendant[2] ?> by <?= $descendant[3] ?></p>
                 </div>
             </div>
-
-        <?php  } } ?>
+        <?php }} ?>
 
         </section>
         <?php include 'footer.php' ?>

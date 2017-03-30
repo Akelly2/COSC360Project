@@ -6,7 +6,17 @@ if (!isset($_SESSION)) {
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
 $sql = "SELECT postid, title, ts, userid
-        FROM Post";
+        FROM Post ";
+if (!empty($_GET['searchterms'])){
+    $searchterms = explode(' ', $_GET['searchterms']);
+    $sql.= " WHERE ";
+    foreach ($searchterms as $term) {
+        $sql .= " title LIKE '$term' AND ";
+    }
+    // You can never be too sure
+    $sql .= " 1 = 1 ";
+}
+$sql .= "ORDER BY ts DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -27,7 +37,11 @@ mysqli_free_result($result);
     <body>
         <?php include 'header.php'; ?>
         <div id="sidebar">
-            <a class="speciallink" href="create.php">Create</a>
+            <form id="search" action="index.php" method="GET">
+                <input type="text" name="searchterms" placeholder="search" />
+                <input style="visibility: hidden; width:1px; height: 1px; margin:0;" type="submit" value="Go" tabindex="2" />
+            </form>
+            <a class="speciallink" href="create.php">Submit a new post</a>
         </div>
         <section id="links">
         <?php foreach ($threads as $thread) { ?>

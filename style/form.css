@@ -55,7 +55,6 @@ input:focus, textarea:focus {
 input[type="file"] {
 }
 
-
 input[type="submit"], input[type="reset"] {
     text-decoration: none;
     margin-bottom: 1em;
