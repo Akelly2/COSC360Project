@@ -15,14 +15,14 @@ footer {
 }
 
 h1 {
-    padding-top: 1.3em;
-    padding-bottom: 1em;
+    padding-top: 1.2em;
+    padding-bottom: .9em;
     font-size: 1.9em;
 }
 
 h2 {
-    padding-top: 1.2em;
-    padding-bottom: .9em;
+    padding-top: 1em;
+    padding-bottom: .8em;
     font-size: 1.7em;
 }
 
@@ -33,7 +33,7 @@ h3 {
 }
 
 h4 {
-    padding-top: .8em;
+    padding-top: .6em;
     padding-bottom: .3em;
     font-size: 1.2em;
 }
@@ -144,6 +144,14 @@ body {
     padding: 1em;
     margin: .2em;
     border-left: 1px solid #d4d4d4;
+}
+
+.textpost {
+    margin-bottom: .8em;
+}
+
+.details {
+    font-size : .7em;
 }
 
 a {

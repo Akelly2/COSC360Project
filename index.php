@@ -7,11 +7,15 @@ $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
 $sql = "SELECT postid, title, ts, userid
         FROM Post ";
+
+// if there are search terms, then perform a search
+// The SQL uses or so this does not actually work
 if (!empty($_GET['searchterms'])){
     $searchterms = explode(' ', $_GET['searchterms']);
     $sql.= " WHERE ";
     foreach ($searchterms as $term) {
-        $sql .= " title LIKE '$term' AND ";
+        // This is just waiting for injection
+        $sql .= " title LIKE '%$term%' or ";
     }
     // You can never be too sure
     $sql .= " 1 = 1 ";

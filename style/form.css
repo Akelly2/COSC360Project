@@ -82,12 +82,11 @@ textarea {
     display: block;
 }
 
-.highlight {
-    box-shadow: 0 0 4px #f20505;
-}
-
-.no-highlight {
-    box-shadow: none;
+.specialbutton {
+    color: #4d4d4d;
+    /*border: 1px solid #0293a1;*/
+    padding: .2em;
+    font-size: .7em;
 }
 
 .terms {
@@ -96,4 +95,26 @@ textarea {
 
 .terms, input[type="file"], textarea {
     font-size: .9em;
+}
+
+.specialbutton:hover {
+    color: #262626;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.replyform {
+    visibility: hidden;
+}
+
+.replyformshow {
+    visibility: visible;
+}
+
+.highlight {
+    box-shadow: 0 0 4px #f20505;
+}
+
+.no-highlight {
+    box-shadow: none;
 }

@@ -62,13 +62,13 @@ mysqli_free_result($result);
 
         <div id="main">
             <h3><?= $mainpost[1] ?></h3>
-            <p>
+            <p class="textpost">
                 <?= $mainpost[2] ?>
             </p>
-            <p>
+            <p class="details">
                 Date and time posted: <?= $mainpost[3] ?>
             </p>
-            <p>
+            <p class="details">
                 Posted by: <?= $user[1] ?>
             </p>
         </div>
@@ -80,9 +80,10 @@ mysqli_free_result($result);
         // loop through each top level comment
         foreach ($parents as $parent) {
              ?>
-            <div class="parent">
-                <p id="<?= $parent[0] ?>"><?= $parent[1] ?></p>
+            <div id="<?= $parent[0] ?>" class="parent">
+                <p ><?= $parent[1] ?></p>
                 <p>Submitted <?= $parent[2] ?> by <?= $parent[3] ?></p>
+                <button class="specialbutton" onclick="replybox(<?= $parent[0]?>)">Reply</button>
 
             <?php
             // print_r($parent);
@@ -103,6 +104,10 @@ mysqli_free_result($result);
                 <div class="desc">
                     <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
                     <p>Submitted <?= $descendant[2] ?> by <?= $descendant[3] ?></p>
+
+                    <form class="replyform" >
+                        <textbox></textbox>
+                    </form>
                 </div>
             </div>
         <?php }} ?>
