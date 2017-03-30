@@ -11,8 +11,8 @@
     <body>
         <?php include 'header.php'; ?>
 
-        <div id="main">
-            <form id="mainform" method="POST" action="app/registerProcess.php">
+        <div>
+            <form id="mainform" method="POST" action="app/editProfile.php">
                 <h2>Edit your profile</h2>
 
                 <div class="formE">
@@ -32,7 +32,7 @@
                     <p id="pleaseconfirm"></p>
                 </div>
 
-                <input type="submit" value="Register" />
+                <input class="formsubmit" type="submit" value="Change" />
             </form>
         </div>
         <?php include 'footer.php'; ?>

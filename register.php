@@ -56,7 +56,7 @@ if ( !empty($_SESSION['forumuser']) ) {
                     <p id="pleaseaccept"></p>
                 </div>
 
-                <input type="submit" value="Register" />
+                <input class="formsubmit" type="submit" value="Register" />
             </form>
         </div>
         <?php include 'footer.php'; ?>

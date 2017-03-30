@@ -56,10 +56,9 @@ input:focus, textarea:focus {
 input[type="file"] {
 }
 
-input[type="submit"], input[type="reset"] {
+.formsubmit {
     text-decoration: none;
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin: .5em 0 .5em 0;
     width: 120px;
     background-color: #03afc1;
     /*border: 1px solid #0293a1;*/
@@ -68,9 +67,15 @@ input[type="submit"], input[type="reset"] {
     color: #ffffff;
 }
 
-input[type="submit"]:hover, input[type="reset"]:hover {
+.formsubmit:hover {
     background-color: #03b9cb;
     cursor: pointer;
+    transition: background-color .1s ease-in-out;
+}
+
+.formsubmit:hover::after {
+    background-color: #03afc1;
+    transition: background-color .1s ease-in-out;
 }
 
 textarea {
@@ -91,13 +96,31 @@ textarea {
     font-size: .7em;
     border: 1px solid #d5d2d2;
     border-radius: 5px;
+    margin: .2em 0 .2em 0;
 }
 
 .specialbutton:hover {
-    color: #262626;
+    background-color: #fff;
     cursor: pointer;
     text-decoration: none;
 }
+
+.specialbutton2 {
+    background-color: inherit;
+    color: #4d4d4d;
+    /*border: 1px solid #0293a1;*/
+    padding: .2em;
+    font-size: .7em;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
+    margin: .4em 0 .2em 0;
+}
+
+.specialbutton2:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 .terms {
 }
@@ -110,6 +133,7 @@ textarea[name="replytext"], textarea[name="commenttext"] {
     height: 80px;
     width: 400px;
     border-radius: 5px;
+    margin-top: .3em;
 }
 
 /* JavaScript class changes */

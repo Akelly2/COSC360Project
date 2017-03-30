@@ -37,7 +37,7 @@ if ( !empty($_SESSION['forumuser']) ) {
                 </div>
 
 
-                <input class="button" type="submit" value="Go" />
+                <input class="formsubmit" type="submit" value="Go" />
 
             </form>
         </div>

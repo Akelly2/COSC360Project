@@ -30,7 +30,7 @@ if ( empty($_SESSION['forumuser']) ) {
                         <label>Content</label>
                         <textarea name="content"></textarea>
                     </div>
-                    <input type="submit" value="Submit" />
+                    <input class="formsubmit" type="submit" value="Submit" />
                 </form>
             </div>
         <?php include 'footer.php' ?>

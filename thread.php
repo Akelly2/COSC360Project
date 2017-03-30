@@ -86,9 +86,11 @@ mysqli_free_result($result);
                 <p class="details"><?= $parent[1] ?></p>
                 <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
                 <button class="specialbutton" onclick="showreplyform(<?= $parent[0]?>)">Reply</button>
-                <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="addReply.php">
+                <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="app/addReply.php">
                     <input type="hidden" name="threadid" value="<?= $parent[4] ?>" />
+                    <input type="hidden" name="postid" value="<?= $postid ?>" />
                     <textarea name="replytext"></textarea>
+                    <input class="specialbutton" type="submit" value="Submit Reply" />
                 </form>
             <?php
             // print_r($parent);
@@ -120,7 +122,7 @@ mysqli_free_result($result);
                 <form class="replyformhidden" id="parent" method="POST" action="app/addComment.php">
                     <input type="hidden" name="postid" value="<?= $postid ?>" />
                     <textarea name="commenttext"></textarea>
-                    <input type="submit" value="Submit Comment" />
+                    <input  class="specialbutton" type="submit" value="Submit Comment" />
                 </form>
             </div>
         </section>
