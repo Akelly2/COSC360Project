@@ -5,3 +5,11 @@ function showreplyform (id) {
         document.getElementById('r' + id).className = "replyformshown";
     }
 }
+
+function showcommentform () {
+    if (document.getElementById('parent').className === "replyformshown") {
+        document.getElementById('parent').className = "replyformhidden";
+    } else if (document.getElementById('parent').className === "replyformhidden") {
+        document.getElementById('parent').className = "replyformshown";
+    }
+}

@@ -89,6 +89,8 @@ textarea {
     /*border: 1px solid #0293a1;*/
     padding: .2em;
     font-size: .7em;
+    border: 1px solid #d5d2d2;
+    border-radius: 5px;
 }
 
 .specialbutton:hover {
@@ -98,15 +100,14 @@ textarea {
 }
 
 .terms {
-    padding-bottom:
 }
 
 .terms, input[type="file"], textarea {
     font-size: .9em;
 }
 
-textarea[name="replytext"] {
-    height: 100px;
+textarea[name="replytext"], textarea[name="commenttext"] {
+    height: 80px;
     width: 400px;
     border-radius: 5px;
 }

@@ -75,7 +75,8 @@ mysqli_free_result($result);
         </div>
 
         <section class="replies">
-            <h3>Replies</h3>
+            <h4>Replies</h4>
+
 
         <?php
         // loop through each top level comment
@@ -85,7 +86,8 @@ mysqli_free_result($result);
                 <p class="details"><?= $parent[1] ?></p>
                 <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
                 <button class="specialbutton" onclick="showreplyform(<?= $parent[0]?>)">Reply</button>
-                <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="addComment.php">
+                <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="addReply.php">
+                    <input type="hidden" name="threadid" value="<?= $parent[4] ?>" />
                     <textarea name="replytext"></textarea>
                 </form>
             <?php
@@ -108,9 +110,19 @@ mysqli_free_result($result);
                     <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
                     <p class="details">Submitted <?= '' ?> by <?= $descendant[3] ?></p>
                 </div>
-            </div>
-        <?php }} ?>
 
+        <?php } // I don't know ?>
+            </div>
+        <?php } ?>
+
+            <div>
+                <button class="specialbutton" onclick="showcommentform()">Comment</button>
+                <form class="replyformhidden" id="parent" method="POST" action="app/addComment.php">
+                    <input type="hidden" name="postid" value="<?= $postid ?>" />
+                    <textarea name="commenttext"></textarea>
+                    <input type="submit" value="Submit Comment" />
+                </form>
+            </div>
         </section>
         <?php include 'footer.php' ?>
 
