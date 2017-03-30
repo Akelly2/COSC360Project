@@ -17,13 +17,13 @@ if ( !empty($_SESSION['forumuser']) ) {
     </head>
     <body>
         <?php include 'header.php'; ?>
-        <div id="main">
+        <div>
 
             <form id="mainform" method="POST" action="app/loginProcess.php">
                 <h2>Login</h2>
 
                 <div class="formE">
-                    <label>Email</label>
+                    <label>Email or Username</label>
                     <input type="text" name="cred" placeholder=""/>
                     <p id="pleasefillemail">
                     </p>

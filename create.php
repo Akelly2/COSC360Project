@@ -19,7 +19,7 @@ if ( empty($_SESSION['forumuser']) ) {
     </head>
     <body>
         <?php include 'header.php'; ?>
-            <div id="main">
+            <div>
                 <form id="create" method="POST" action="app/addPost.php">
                     <h2>Create post</h2>
                     <div class="formE">

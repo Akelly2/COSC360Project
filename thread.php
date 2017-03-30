@@ -53,6 +53,7 @@ mysqli_free_result($result);
         <link rel="stylesheet" href="style/reset.css" />
         <link rel="stylesheet" href="style/form.css" />
         <link rel="stylesheet" href="style/general.css" />
+        <script type="text/javascript" src="script/reply.js"></script>
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -81,10 +82,12 @@ mysqli_free_result($result);
         foreach ($parents as $parent) {
              ?>
             <div id="<?= $parent[0] ?>" class="parent">
-                <p ><?= $parent[1] ?></p>
-                <p>Submitted <?= $parent[2] ?> by <?= $parent[3] ?></p>
-                <button class="specialbutton" onclick="replybox(<?= $parent[0]?>)">Reply</button>
-
+                <p class="details"><?= $parent[1] ?></p>
+                <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
+                <button class="specialbutton" onclick="showreplyform(<?= $parent[0]?>)">Reply</button>
+                <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="addComment.php">
+                    <textarea name="replytext"></textarea>
+                </form>
             <?php
             // print_r($parent);
             $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
@@ -103,16 +106,13 @@ mysqli_free_result($result);
                 ?>
                 <div class="desc">
                     <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
-                    <p>Submitted <?= $descendant[2] ?> by <?= $descendant[3] ?></p>
-
-                    <form class="replyform" >
-                        <textbox></textbox>
-                    </form>
+                    <p class="details">Submitted <?= '' ?> by <?= $descendant[3] ?></p>
                 </div>
             </div>
         <?php }} ?>
 
         </section>
         <?php include 'footer.php' ?>
+
     </body>
 </html>

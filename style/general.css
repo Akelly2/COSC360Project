@@ -141,8 +141,8 @@ body {
 }
 
 .parent, .desc{
-    padding: 1em;
-    margin: .2em;
+    padding: .5em 0 .5em 1em;
+    margin: .5em;
     border-left: 1px solid #d4d4d4;
 }
 

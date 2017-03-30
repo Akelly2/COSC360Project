@@ -10,6 +10,7 @@
 }
 
 #create {
+    max-width: 800px;
     margin: .5em;
     background-color: #f6f4f4;
     border: 1px solid #e7e7e7;
@@ -83,10 +84,17 @@ textarea {
 }
 
 .specialbutton {
+    background-color: inherit;
     color: #4d4d4d;
     /*border: 1px solid #0293a1;*/
     padding: .2em;
     font-size: .7em;
+}
+
+.specialbutton:hover {
+    color: #262626;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .terms {
@@ -97,18 +105,22 @@ textarea {
     font-size: .9em;
 }
 
-.specialbutton:hover {
-    color: #262626;
-    cursor: pointer;
-    text-decoration: none;
+textarea[name="replytext"] {
+    height: 100px;
+    width: 400px;
+    border-radius: 5px;
 }
 
-.replyform {
-    visibility: hidden;
+/* JavaScript class changes */
+
+.replyformhidden {
+
+    display: none;
 }
 
-.replyformshow {
-    visibility: visible;
+.replyformshown {
+
+    display: block;
 }
 
 .highlight {

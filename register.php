@@ -18,7 +18,7 @@ if ( !empty($_SESSION['forumuser']) ) {
     <body>
         <?php include 'header.php'; ?>
 
-        <div id="main">
+        <div>
             <form id="mainform" method="POST" action="app/registerProcess.php" enctype="multipart/form-data">
                 <h2>Register</h2>
                 <div class="formE">
