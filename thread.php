@@ -33,9 +33,11 @@ $user = $result->fetch_array(MYSQLI_NUM);
 mysqli_free_result($result);
 
 // get the comments for this thread
-$sql = "SELECT commentid, content, ts, username, parentid, userid, postid
+$sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
         FROM Comment
-        WHERE postid = ?";
+        WHERE postid = ?
+        ORDER BY threadid ASC, ts ASC
+        GROUP BY threadid";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $mainpost[0]);
 $stmt->execute();
@@ -72,20 +74,24 @@ mysqli_free_result($result);
             </p>
         </div>
 
-        <?php // Logic is needed here to show comment threads ?>
-
         <h3>Replies</h3>
         <section class="replies">
+
+        <?php
+        foreach ($comments as $comment) {
+            if ($comment[5] == true) { ?>
             <div class="parent">
+                <p><?= $comment[1] ?></p>
+                <p>Submitted <?= $comment[2] ?> by <?= $comment[3] ?></p>
+            <?php } ?>
                 <div class="desc">
-                    <p>An example of a pleasent comment.</p>
-                    <p>Submitted 5 hours ago by Joey K.</p>
+                    <p><?= $comment[1] ?></p>
+                    <p>Submitted <?= $comment[2] ?> by <?= $comment[3] ?></p>
                 </div>
             </div>
-            <div class="parent">
-                <p>An example of a very condescending reply.</p>
-                <p>Submitted 5 hours ago by George P.</p>
-            </div>
+
+        <?php } ?>
+
         </section>
         <?php include 'footer.php' ?>
     </body>
