@@ -27,17 +27,17 @@ create table Post (
 create table Comment (
     commentid int auto_increment,
     content text,
-    isparent boolean,
-    parentid int,
     ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    username varchar(255),
+    parentid int,
     userid int,
     postid int,
     primary key (commentid),
-    foreign key(userid)
+    foreign key (userid)
         references User(userid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
-    foreign key(postid)
+    foreign key (postid)
         references Post(postid)
         ON DELETE NO ACTION
         ON UPDATE CASCADE

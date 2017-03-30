@@ -23,7 +23,7 @@ mysqli_free_result($result);
 
 // get user data
 $sql = "SELECT U.userid, U.username
-        FROM User as U 
+        FROM User as U
         WHERE U.userid = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $row[4]);
@@ -32,6 +32,16 @@ $result = $stmt->get_result();
 $user = $result->fetch_array(MYSQLI_NUM);
 mysqli_free_result($result);
 
+// get the comments for this thread
+$sql = "SELECT commentid, content, ts, username, parentid, userid, postid
+        FROM Comment
+        WHERE postid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $mainpost[0]);
+$stmt->execute();
+$result = $stmt->get_result();
+$comments = $result->fetch_array(MYSQLI_NUM);
+mysqli_free_result($result);
  ?>
 <!DOCTYPE html>
 <html>
@@ -62,18 +72,21 @@ mysqli_free_result($result);
             </p>
         </div>
 
-        <?php // Logic is needed here to show entire comment threads ?>
-        <div id="comments">
+        <?php // Logic is needed here to show comment threads ?>
+
         <h3>Replies</h3>
-            <div id="comment">
-                <p>An example of a pleasent comment.</p>
-                <p>Submitted 5 hours ago by Joey K.</p>
-                <div id="comment">
-                    <p>An example of a very condescending reply.</p>
-                    <p>Submitted 5 hours ago by George P.</p>
+        <section class="replies">
+            <div class="parent">
+                <div class="desc">
+                    <p>An example of a pleasent comment.</p>
+                    <p>Submitted 5 hours ago by Joey K.</p>
                 </div>
             </div>
-        </div>
+            <div class="parent">
+                <p>An example of a very condescending reply.</p>
+                <p>Submitted 5 hours ago by George P.</p>
+            </div>
+        </section>
         <?php include 'footer.php' ?>
     </body>
 </html>
