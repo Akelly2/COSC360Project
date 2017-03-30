@@ -35,14 +35,13 @@ mysqli_free_result($result);
 // get the comments for this thread
 $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
         FROM Comment
-        WHERE postid = ?
-        ORDER BY threadid ASC, ts ASC
-        GROUP BY threadid";
+        WHERE postid = ? and isparent = 1
+        ORDER BY threadid asc";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $mainpost[0]);
+$stmt->bind_param('i', $postid);
 $stmt->execute();
 $result = $stmt->get_result();
-$comments = $result->fetch_array(MYSQLI_NUM);
+$parents = $result->fetch_all(MYSQLI_NUM);
 mysqli_free_result($result);
  ?>
 <!DOCTYPE html>
@@ -78,19 +77,38 @@ mysqli_free_result($result);
         <section class="replies">
 
         <?php
-        foreach ($comments as $comment) {
-            if ($comment[5] == true) { ?>
+
+        // loop through each top level comment
+
+        foreach ($parents as $parent) {
+             ?>
             <div class="parent">
-                <p><?= $comment[1] ?></p>
-                <p>Submitted <?= $comment[2] ?> by <?= $comment[3] ?></p>
-            <?php } ?>
+                <p id="<?= $parent[0] ?>"><?= $parent[1] ?></p>
+                <p>Submitted <?= $parent[2] ?> by <?= $parent[3] ?></p>
+
+            <?php
+            // print_r($parent);
+            $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
+                    FROM Comment
+                    WHERE threadid = ? and isparent = 0
+                    ORDER BY threadid";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('i', $parent[4]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $descendants = $result->fetch_all(MYSQLI_NUM);
+            mysqli_free_result($result);
+
+            // loop through each direct reply to each parent comment and append
+            foreach ($descendants as $descendant) {
+                ?>
                 <div class="desc">
-                    <p><?= $comment[1] ?></p>
-                    <p>Submitted <?= $comment[2] ?> by <?= $comment[3] ?></p>
+                    <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
+                    <p>Submitted <?= $descendant[2] ?> by <?= $descendant[3] ?></p>
                 </div>
             </div>
 
-        <?php } ?>
+        <?php  } } ?>
 
         </section>
         <?php include 'footer.php' ?>

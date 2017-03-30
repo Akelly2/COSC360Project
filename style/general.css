@@ -14,6 +14,31 @@ footer {
     bottom: 0;
 }
 
+
+h1 {
+    padding-top: 1.3em;
+    padding-bottom: 1em;
+    font-size: 1.9em;
+}
+
+h2 {
+    padding-top: 1.3em;
+    padding-bottom: 1em;
+    font-size: 1.7em;
+}
+
+h3 {
+    padding-top: 1em;
+    padding-bottom: .5em;
+    font-size: 1.4em;
+}
+
+h4 {
+    padding-top: .8em;
+    padding-bottom: .3em;
+    font-size: 1.2em;
+}
+
 .HFlink {
     padding: 1em .7em 1em .7em;
     margin: 0 .3em 0 .3em;
@@ -96,15 +121,20 @@ body {
     height: 820px;
 }
 
-#submission p {
+.submission p {
     font-size: 0.8em;
     padding-bottom: .8em;
 
 }
 
-#submission{
+.submission {
     padding: 1em;
     border: 1px solid #d4d4d4;
+}
+
+.submission:hover {
+    background-color: #fbfbfb;
+    text-decoration: none;
 }
 
 .parent p {
@@ -118,21 +148,6 @@ body {
     border: 1px solid #d4d4d4;
 }
 
-h2 {
-    padding-bottom: 1.3em;
-    font-size: 1.7em;
-    padding-bottom: 1em;
-}
-
-h3 {
-    padding-bottom: 1em;
-    font-size: 1.4em;
-    padding-bottom: .5em;
-}
-
-h4 {
-    font-size: 1.1em;
-}
 
 a {
     color: #283680;
@@ -146,6 +161,18 @@ a:hover {
 a:visited {
     color: #030095;
 }
+
+.clickablebox:visited {
+    color: #4d4d4d;
+}
+
+.clickablebox:hover {
+    color: #4d4d4d;
+    background-color: #fbfbfb;
+    text-decoration: none;
+}
+
+.replies
 
 .termsBox {
     background-color: white;

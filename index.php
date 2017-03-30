@@ -1,3 +1,19 @@
+<?php
+include("app/DB.php");
+if (!isset($_SESSION)) {
+    session_start();
+}
+$conn = DB::getConnection() or
+  die ("<p>Data problem. Talk to your administrator.</p>");
+$sql = "SELECT postid, title, ts, userid
+        FROM Post";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+$threads = $result->fetch_all(MYSQLI_NUM);
+mysqli_free_result($result);
+ ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,17 +29,18 @@
         <div id="sidebar">
             <a class="speciallink" href="create.php">Create</a>
         </div>
-        <div id="links">
-            <div class="submission">
-                <h4>Check out this sweet pencil.</h4>
+        <section id="links">
+        <?php foreach ($threads as $thread) { ?>
+            <a class="clickablebox" href="thread.php?postid=<?= $thread[0]?>" ?>
+                <div class="submission">
+                <h4><?= $thread[1] ?></h4>
                 <p>
-                    Submitted 5 hours ago by Joey K.
+                    Submitted <?= $thread[2] ?> by <?= $thread[3] ?>
                 </p>
-                <p>
-                    <a href="#">Comments</a>
-                </p>
-            </div>
-        </div>
+                </div>
+            </a>
+        <?php } ?>
+        </section>
 
         <?php include 'footer.php' ?>
     </body>
