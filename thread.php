@@ -17,20 +17,18 @@ $sql = "SELECT postid, title, content, ts, userid
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $postid);
 $stmt->execute();
-$result = $stmt->get_result();
-$mainpost = $result->fetch_array(MYSQLI_NUM);
-mysqli_free_result($result);
+$mainpost = DB::get_result($stmt);
+$mainpost = $mainpost[0];
 
 // get user data
 $sql = "SELECT U.userid, U.username
         FROM User as U
         WHERE U.userid = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $row[4]);
+$stmt->bind_param('i', $mainpost[4]);
 $stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_array(MYSQLI_NUM);
-mysqli_free_result($result);
+$user = DB::get_result($stmt);
+$user = $user[0];
 
 // get the comments for this thread
 $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
@@ -40,9 +38,7 @@ $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, pos
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $postid);
 $stmt->execute();
-$result = $stmt->get_result();
-$parents = $result->fetch_all(MYSQLI_NUM);
-mysqli_free_result($result);
+$parents = DB::get_result($stmt);
  ?>
 <!DOCTYPE html>
 <html>
@@ -101,9 +97,7 @@ mysqli_free_result($result);
             $stmt = $conn->prepare($sql);
             $stmt->bind_param('i', $parent[4]);
             $stmt->execute();
-            $result = $stmt->get_result();
-            $descendants = $result->fetch_all(MYSQLI_NUM);
-            mysqli_free_result($result);
+            $descendants = DB::get_result($stmt);
 
             // loop through each direct reply to each parent comment and append
             foreach ($descendants as $descendant) {

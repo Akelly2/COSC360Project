@@ -23,7 +23,7 @@ $sql = "UPDATE Comment SET threadid = ? WHERE commentid = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ii', $commentid, $commentid);
 if ($stmt->execute()) {
-    header("Location: ../thread?postid=" . $postid);
+    header("Location: ../thread.php?postid=" . $postid);
 }
 
  ?>

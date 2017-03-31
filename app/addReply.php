@@ -17,7 +17,7 @@ $stmt = $conn->prepare($newsql);
 $stmt->bind_param('sisiii', $_POST['replytext'], $isparent, $user, $threadid,
                  $_SESSION['userid'], $postid);
 if ($stmt->execute()) {
-     header("Location: ../thread?postid=" . $postid);
+     header("Location: ../thread.php?postid=" . $postid);
 }
 
  ?>

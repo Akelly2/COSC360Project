@@ -7,7 +7,6 @@ if(!isset($_SESSION))
 
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
-
 if ( isset($_POST["username"])
     && isset($_POST["email"])
     && isset($_POST["password"]) ) {
@@ -17,9 +16,9 @@ if ( isset($_POST["username"])
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ss', $_POST["username"], $_POST["email"]);
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $row = $result->fetch_array(MYSQLI_NUM);
-        if ($row !== null) {
+        $row = DB::get_result($stmt);
+        // print_r($row); // debugging
+        if (!empty($row)) {
             if (in_array($_POST["email"], $row) && in_array($_POST["username"], $row)) {
                 // email and username exist error
                 header('Location: ../register.php?registererr=1');
@@ -58,8 +57,6 @@ if ( isset($_POST["username"])
                 // Check if $uploadOk is set to 0 by an error
 
             }
-
-            mysqli_free_result($result);
             $newsql = "INSERT into User(username, email, password) values (?, ?, ?);";
             $stmt = $conn->prepare($newsql);
             $pass = md5($_POST["password"]);

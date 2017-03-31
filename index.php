@@ -23,9 +23,8 @@ if (!empty($_GET['searchterms'])){
 $sql .= "ORDER BY ts DESC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-$result = $stmt->get_result();
-$threads = $result->fetch_all(MYSQLI_NUM);
-mysqli_free_result($result);
+$result = DB::get_result($stmt);
+$threads = $result;
  ?>
 
 <!DOCTYPE html>

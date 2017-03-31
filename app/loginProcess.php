@@ -13,10 +13,10 @@ if ( isset($_POST["cred"]) && isset($_POST["password"]) ) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ss', $_POST["cred"], $_POST["cred"]);
     if ($stmt->execute()) {
-        $result = $stmt->get_result();
-        $row = $result->fetch_array(MYSQLI_NUM);
+        $row = DB::get_result($stmt);
+        $row = $row[0];
         // print_r($row);
-        if ($row !== null) {
+        if (!empty($row)) {
             if ( md5($_POST["password"]) == $row[2]
             && ( $_POST['cred'] == $row[1] || $_POST['cred'] == $row[0] ) ) {
                 $_SESSION['forumuser'] = $row[1];
