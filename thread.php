@@ -54,7 +54,11 @@ $parents = DB::get_result($stmt);
     <body>
         <?php include 'header.php'; ?>
         <div id="sidebar">
-            <a class="speciallink" href="create.php">Create</a>
+            <form id="search" action="index.php" method="GET">
+                <input type="text" name="searchterms" placeholder="search" />
+                <input style="visibility: hidden; width:1px; height: 1px; margin:0;" type="submit" value="Go" tabindex="2" />
+            </form>
+            <a class="speciallink" href="create.php">Submit a new post</a>
         </div>
 
         <div id="main">

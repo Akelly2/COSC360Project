@@ -1,3 +1,20 @@
+<?php
+include("app/DB.php");
+if(!isset($_SESSION))
+{
+    session_start();
+}
+$conn = DB::getConnection() or
+  die ("<p>Data problem. Talk to your administrator.</p>");
+$sql = "SELECT userid, username
+        FROM User
+        WHERE userid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $_SESSION['userid']);
+$stmt->execute();
+$row = DB::get_result($stmt);
+$row = $row[0];
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,16 +30,23 @@
 
         <div>
             <form id="mainform" method="POST" action="app/editProfile.php">
+                <img src="userimages/<?= $row[0] ?>" class="profilepic"/>
                 <h2>Edit your profile</h2>
 
                 <div class="formE">
-                    <label>Change profile picture</label>
+                    <label><?= $row[1] ?></label>
                     <input type="file" name="image" placeholder="Image" />
                 </div>
 
                 <div class="formE">
+                    <label>Old Password</label>
+                    <input type="password" name="oldpassword" placeholder="Password" />
+                    <p id="pleasefillpass"></p>
+                </div>
+
+                <div class="formE">
                     <label>Change Password</label>
-                    <input type="password" name="password" placeholder="Password" />
+                    <input type="password" name="newpassword" placeholder="Password" />
                     <p id="pleasefillpass"></p>
                 </div>
 

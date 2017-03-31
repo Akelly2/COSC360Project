@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 }
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
-$sql = "SELECT postid, title, ts, userid
+$sql = "SELECT postid, title, ts, userid, username
         FROM Post ";
 
 // if there are search terms, then perform a search
@@ -42,7 +42,7 @@ $threads = $result;
         <div id="sidebar">
             <form id="search" action="index.php" method="GET">
                 <input type="text" name="searchterms" placeholder="search" />
-                <input style="visibility: hidden; width:1px; height: 1px; margin:0;" type="submit" value="Go" tabindex="2" />
+                <input style="visibility: hidden; width:1px; height: 1px; margin:0;" type="submit" value="Go" />
             </form>
             <a class="speciallink" href="create.php">Submit a new post</a>
         </div>
@@ -50,10 +50,11 @@ $threads = $result;
         <?php foreach ($threads as $thread) { ?>
             <a class="clickablebox" href="thread.php?postid=<?= $thread[0]?>" ?>
                 <div class="submission">
-                <h4><?= $thread[1] ?></h4>
-                <p>
-                    Submitted <?= $thread[2] ?> by <?= $thread[3] ?>
-                </p>
+                    <h4><?= $thread[1] ?></h4>
+                    <img src="userimages/<?= $thread[3] ?>" class="profilepicsmall"/>
+                    <p class="pname">
+                        Submitted by <?= $thread[4] ?>
+                    </p>
                 </div>
             </a>
         <?php } ?>

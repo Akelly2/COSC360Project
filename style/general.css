@@ -1,5 +1,5 @@
 header, footer {
-    font-size: .75em;
+    font-size: .85em;
     padding: 1em 0 1em 0;
     background-color: #2a2a2a;
     color: #d9d9d9;
@@ -11,7 +11,7 @@ footer {
     width: 100%;
     clear: right;
 	/*position: absolute;*/
-	margin-top:	1em;
+	margin-top:	2em;
     bottom: 0;
 }
 
@@ -188,4 +188,23 @@ a:visited {
     margin-top: 20%;
     text-align: center;
     border: 1px solid #d4d4d4;
+}
+
+.profilepic {
+    width: 200px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.profilepicsmall {
+    float: left;
+    width: 40px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pname {
+    display: inline-block;
+    padding-top: .6em;
+    margin-left: .6em;
 }

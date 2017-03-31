@@ -11,9 +11,10 @@ $conn = DB::getConnection() or
 if ( isset($_POST['title']) && isset($_POST['content'])) {
 
     // add the post to the database
-    $sql = "INSERT into Post(title, content, userid) values (?, ?, ?);";
+    $sql = "INSERT into Post(title, content, userid, username) values (?, ?, ?, ?);";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssi', $_POST['title'], $_POST['content'], $_SESSION['userid']);
+    $stmt->bind_param('ssis', $_POST['title'], $_POST['content'],
+        $_SESSION['userid'], $_SESSION['forumuser']);
     $stmt->execute();
     mysqli_stmt_close($stmt);
 
