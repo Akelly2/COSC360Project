@@ -19,7 +19,7 @@ $row = $row[0];
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Register</title>
+        <title>Account</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
         <link rel="stylesheet" href="style/form.css" />
@@ -30,7 +30,7 @@ $row = $row[0];
         <?php include 'header.php'; ?>
 
         <div>
-            <form id="mainform" method="POST" action="app/editProfile.php">
+            <form id="mainform" method="POST" action="app/editProfile.php" enctype="multipart/form-data">
                 <?php if ($row[3] !== 0) {
                     $filename = $row[0];
                 } else {
@@ -41,7 +41,13 @@ $row = $row[0];
                 <h2><?= $row[1] ?></h2>
 
                 <div class="formE">
-                    <input type="file" name="image" placeholder="Image" />
+                <label>Email:</label>
+                <p><?= $row[2] ?></p>
+                </div>
+
+                <div class="formE">
+                    <label>New image</label>
+                    <input type="file" name="userImage" id="userImage" placeholder="Image" />
                 </div>
 
                 <?php
@@ -62,10 +68,10 @@ $row = $row[0];
                 //     <label>Confirm Password change</label>
                 //     <input type="password" name="confirm" placeholder="Confirm" />
                 //     <p id="pleaseconfirm"></p>
-                // </div>
-                //
-                // <input class="formsubmit" type="submit" value="Change" />  '
-                    ?>
+                // </div> '
+                ?>
+                <input class="formsubmit" name="submit" type="submit" value="Change" />
+
             </form>
         </div>
         <?php include 'footer.php'; ?>

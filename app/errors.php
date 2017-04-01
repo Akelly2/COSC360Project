@@ -1,9 +1,10 @@
 <?php
 $loginerr = [
     '',
-    'Password does not match.',
+    'Please fill out all empty fields',
     'Username or email does not exist in our records.',
-    'Please fill out all empty fields'
+    'Password does not match.',
+    'You are not currently permitted to use the site.'
 ];
 
 $registererr = [

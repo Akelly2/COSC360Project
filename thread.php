@@ -44,7 +44,7 @@ $parents = DB::get_result($stmt);
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Title here</title>
+        <title>MyForum</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
         <link rel="stylesheet" href="style/form.css" />
@@ -72,6 +72,11 @@ $parents = DB::get_result($stmt);
             <p class="details">
                 Posted by: <?= $user[1] ?>
             </p>
+            <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
+            <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?postid=<?= $mainpost[0] ?>">
+                Delete
+            </a>
+            <?php } ?>
         </div>
 
         <section class="replies">
@@ -85,6 +90,11 @@ $parents = DB::get_result($stmt);
             <div id="<?= $parent[0] ?>" class="parent">
                 <p class="details"><?= $parent[1] ?></p>
                 <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
+                <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
+                <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?commentid=<?= $parent[0] ?>">
+                    Delete
+                </a>
+                <?php } ?>
                 <?php if (isset($_SESSION['forumuser'])) { ?>
                 <button class="specialbutton" onclick="showreplyform(<?= $parent[0]?>)">Reply</button>
                 <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="app/addReply.php">
@@ -110,6 +120,9 @@ $parents = DB::get_result($stmt);
                 <div class="desc">
                     <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
                     <p class="details">Submitted <?= '' ?> by <?= $descendant[3] ?></p>
+                    <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
+                    <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?commentid=<?= $descendant[0] ?>">Delete</a>
+                    <?php } ?>
                 </div>
 
         <?php } ?>
@@ -123,7 +136,7 @@ $parents = DB::get_result($stmt);
                 <form class="replyformhidden" id="parent" method="POST" action="app/addComment.php">
                     <input type="hidden" name="postid" value="<?= $postid ?>" />
                     <textarea name="commenttext"></textarea>
-                    <input  class="specialbutton" type="submit" value="Submit Comment" />
+                    <input  class="specialbutton"  type="submit" value="Submit Comment" />
                 </form>
             </div>
         <?php } ?>

@@ -1,4 +1,8 @@
 <?php
+include('app/errors.php');
+if (isset($_GET['registererr'])){
+    $err = $registererr[$_GET['registererr']];
+}
 session_start();
 if ( !empty($_SESSION['forumuser']) ) {
     header('Location: index.php');
@@ -58,6 +62,7 @@ if ( !empty($_SESSION['forumuser']) ) {
 
                 <input class="formsubmit" type="submit" value="Register" />
             </form>
+            <?php if (isset($err)) echo "<p class=\"err\">$err</p>" ; ?>
         </div>
         <?php include 'footer.php'; ?>
     </body>

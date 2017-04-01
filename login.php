@@ -1,7 +1,11 @@
 <?php
+include('app/errors.php');
 session_start();
 if ( !empty($_SESSION['forumuser']) ) {
     header('Location: index.php');
+}
+if (!empty($_GET['loginerr'])){
+    $err = $loginerr[$_GET['loginerr']];
 }
 ?>
 <!DOCTYPE html>
@@ -38,8 +42,9 @@ if ( !empty($_SESSION['forumuser']) ) {
 
 
                 <input class="formsubmit" type="submit" value="Go" />
-
+                <?php if (isset($err)) echo "<p class=\"err\">$err</p>" ; ?>
             </form>
+
         </div>
         <?php include 'footer.php'; ?>
     </body>
