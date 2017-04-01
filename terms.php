@@ -12,7 +12,8 @@
             <div class="termsBox">
                 <p>
                     By using this site I agree to use it in postive ways
-                     that are beneficial to humanity.
+                     that are beneficial to humanity and especially the site
+                     creator and the rest of his COSC 360 classmates.
                 </p>
             </div>
         <?php include 'footer.php'; ?>

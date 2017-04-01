@@ -85,6 +85,7 @@ $parents = DB::get_result($stmt);
             <div id="<?= $parent[0] ?>" class="parent">
                 <p class="details"><?= $parent[1] ?></p>
                 <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
+                <?php if (isset($_SESSION['forumuser'])) { ?>
                 <button class="specialbutton" onclick="showreplyform(<?= $parent[0]?>)">Reply</button>
                 <form class="replyformhidden" id="r<?= $parent[0] ?>" method="POST" action="app/addReply.php">
                     <input type="hidden" name="threadid" value="<?= $parent[4] ?>" />
@@ -92,7 +93,7 @@ $parents = DB::get_result($stmt);
                     <textarea name="replytext"></textarea>
                     <input class="specialbutton" type="submit" value="Submit Reply" />
                 </form>
-            <?php
+            <?php }
             // print_r($parent);
             $sql = "SELECT commentid, content, ts, username, threadid, isparent, userid, postid
                     FROM Comment
@@ -111,10 +112,12 @@ $parents = DB::get_result($stmt);
                     <p class="details">Submitted <?= '' ?> by <?= $descendant[3] ?></p>
                 </div>
 
-        <?php } // I don't know ?>
-            </div>
         <?php } ?>
+            </div>
+        <?php }
 
+        if (isset($_SESSION['forumuser'])) {
+        ?>
             <div>
                 <button class="specialbutton" onclick="showcommentform()">Comment</button>
                 <form class="replyformhidden" id="parent" method="POST" action="app/addComment.php">
@@ -123,7 +126,9 @@ $parents = DB::get_result($stmt);
                     <input  class="specialbutton" type="submit" value="Submit Comment" />
                 </form>
             </div>
+        <?php } ?>
         </section>
+
         <?php include 'footer.php' ?>
 
     </body>

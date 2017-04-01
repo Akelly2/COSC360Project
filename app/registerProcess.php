@@ -55,12 +55,14 @@ if ( isset($_POST["username"])
                     $uploadOk = 0;
                 }
                 // Check if $uploadOk is set to 0 by an error
-
+                $haspic = true;
+            } else {
+                $haspic = false;
             }
-            $newsql = "INSERT into User(username, email, password) values (?, ?, ?);";
+            $newsql = "INSERT into User(username, email, password, haspic) values (?, ?, ?, ?);";
             $stmt = $conn->prepare($newsql);
             $pass = md5($_POST["password"]);
-            $stmt->bind_param('sss', $_POST["username"], $_POST["email"], $pass);
+            $stmt->bind_param('sssi', $_POST["username"], $_POST["email"], $pass, $haspic);
             $stmt->execute();
 
             mysqli_stmt_close($stmt);
