@@ -10,6 +10,16 @@ $conn = DB::getConnection() or
 if ( isset($_POST["username"])
     && isset($_POST["email"])
     && isset($_POST["password"]) ) {
+    $u = $_POST["username"];
+    $e = $_POST["email"];
+    $p = $_POST["password"];
+    if (!preg_match('/^([a-zA-Z.0-9])+[^+,!@#$%^&*(): \t\n;\/|<>"\']$/', $u))
+        echo 'contains characters other than letters and numbers.';
+    if (!preg_match('/^([a-zA-Z.0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"\']$/', $e))
+        echo 'contains characters other than letters and numbers.';
+    if (!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/', $p))
+        echo 'contains characters other than letters and numbers.';
+
     $sql = "SELECT username, email
             FROM User
             WHERE username = ? OR email = ?;";

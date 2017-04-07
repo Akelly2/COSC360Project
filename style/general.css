@@ -194,10 +194,11 @@
     }
 
     .profilepic {
-        width: 250px;
+        width 40%;
         border-radius: 50%;
         display: block;
-        margin: 1em auto 1em auto;
+        padding-top: 1em;
+        margin: 0 auto 1em auto;
         /*border: 1px solid #c1bfbf;*/
     }
 
@@ -254,13 +255,10 @@
     }
 
     #create {
-        max-width: 800px;
-        margin: .5em;
+        max-width: 1000px;
         background-color: #f6f4f4;
-        border: 1px solid #e7e7e7;
-        border-radius: 8px;
         font-size: 1em;
-        padding: 1.5em;
+        padding: 1em;
     }
 
     .formE {

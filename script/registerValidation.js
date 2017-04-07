@@ -38,28 +38,28 @@ function validate(e) {
         .innerHTML = "Please accept the Terms.";
     }
 
-    if (name == null || name == '') {
+    if (name.match(/^([a-zA-Z.0-9])+[^+,!@#$%^&*(): \t\n;\/|<>"']$/) == null) {
         e.preventDefault();
         document.getElementById("pleasefillname")
         .innerHTML = "Please enter a valid username.";
 	}
 
-    if (email == null || email == '' || !email.includes('@')) {
+    if (email.match(/^([a-zA-Z.0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"']$/) == null) {
         e.preventDefault();
         document.getElementById("pleasefillemail")
-        .innerHTML = "Please enter a valid email.";
+        .innerHTML = "Please enter a valid email address.";
     }
 
-    if (password == null || password == '') {
+    if (password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/) == null) {
         e.preventDefault();
         document.getElementById("pleasefillpass")
-        .innerHTML = "Please enter a valid password.";
+        .innerHTML = "Password must contain at least one lower case letter, one upper case letter, and one number.";
 	}
 
-    if (confirm == null || confirm == '') {
+    if (confirm !== password) {
         e.preventDefault();
         document.getElementById("pleaseconfirm")
-        .innerHTML = "Please confirm your password.";
+        .innerHTML = "Please enter your matching password confirmation.";
     }
     return true;
 }

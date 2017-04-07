@@ -34,7 +34,7 @@ if ( !empty($_SESSION['forumuser']) ) {
 
                 <div class="formE">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Email"/>
+                    <input type="text" name="email" placeholder="Email"/>
                     <p id="pleasefillemail"></p>
                 </div>
 
@@ -46,7 +46,7 @@ if ( !empty($_SESSION['forumuser']) ) {
                 <div class="formE">
                     <label>Password</label>
                     <input type="password" name="password" placeholder="Password" />
-                    <p id="pleasefillpass"></p>
+                    <p id="pleasefillpass"></p><br />
                 </div>
 
                 <div class="formE">
