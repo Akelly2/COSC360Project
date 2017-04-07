@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 }
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
-$sql = "SELECT postid, title, ts, U.userid, U.username, U.haspic
+$sql = "SELECT postid, title, ts, U.userid, U.username, U.haspic, ext
         FROM Post as P, User as U
         WHERE P.userid = U.userid ";
 
@@ -50,14 +50,19 @@ $threads = $result;
         <?php foreach ($threads as $thread) { ?>
             <a class="clickablebox" href="thread.php?postid=<?= $thread[0]?>" ?>
                 <div class="submission">
+                    <?php
+                    ?>
                     <h4><?= $thread[1] ?></h4>
-                    <?php if ($thread[5] !== 0) {
-                        $filename = $thread[3];
+                    <?php if ($thread[5] == true) {
+                        $filename = $thread[3].'.'.$thread[6]; // userid and file extension
                     } else {
                         $filename = 'defaultuser.png';
                     }
                     ?>
-                    <img src="userimages/<?= $filename ?>" class="profilepicsmall"/>
+                    <img
+                        src="userimages/<?= $filename ?>"
+                        class="profilepicsmall"
+                        alt="Profile image for <?= $thread[4] ?>"/>
                     <p class="pname">
                         Submitted by <?= $thread[4] ?>
                     </p>

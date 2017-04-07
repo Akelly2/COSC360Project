@@ -6,7 +6,7 @@ if(!isset($_SESSION))
 }
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
-$sql = "SELECT userid, username, email, haspic
+$sql = "SELECT userid, username, email, haspic, ext
         FROM User
         WHERE userid = ?";
 $stmt = $conn->prepare($sql);
@@ -31,8 +31,8 @@ $row = $row[0];
 
         <div>
             <form id="mainform" method="POST" action="app/editProfile.php" enctype="multipart/form-data">
-                <?php if ($row[3] !== 0) {
-                    $filename = $row[0];
+                <?php if ($row[3] == true) {
+                    $filename = $row[0].'.'.$row[4]; // userid and file extension
                 } else {
                     $filename = 'defaultuser.png';
                 }

@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 
 $conn = DB::getConnection() or
   die ("<p>Data problem. Talk to your administrator.</p>");
-
+$_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 if ( isset($_POST['title']) && isset($_POST['content'])) {
 
     // add the post to the database

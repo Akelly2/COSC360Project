@@ -32,7 +32,7 @@ if ( isset($_POST["username"])
         } else {
             if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {
                 $check = getimagesize($_FILES["userImage"]["tmp_name"]);
-                $imageFileType = pathinfo($_FILES["userImage"]["tmp_name"], PATHINFO_EXTENSION);
+                $imageFileType = pathinfo($_FILES["userImage"]["name"], PATHINFO_EXTENSION);
                 if ($check !== false) {
                 //   echo "File is an image - " . $check["mime"] . ".";
                   $uploadOk = 1;
@@ -59,11 +59,20 @@ if ( isset($_POST["username"])
             } else {
                 $haspic = false;
             }
-            $newsql = "INSERT into User(username, email, password, haspic) values (?, ?, ?, ?);";
+            // If the user choose to upload an image then upload the file extension
+            if ($haspic == true)
+            {$newsql = "INSERT into User(username, email, password, haspic, ext) values (?, ?, ?, ?, ?);";
+            $stmt = $conn->prepare($newsql);
+            $pass = md5($_POST["password"]);
+            $stmt->bind_param('sssis', $_POST["username"], $_POST["email"], $pass, $haspic, $imageFileType);
+            $stmt->execute();}
+            // otherwise do no upload the file extension
+            elseif ($haspic == false)
+            {$newsql = "INSERT into User(username, email, password, haspic) values (?, ?, ?, ?);";
             $stmt = $conn->prepare($newsql);
             $pass = md5($_POST["password"]);
             $stmt->bind_param('sssi', $_POST["username"], $_POST["email"], $pass, $haspic);
-            $stmt->execute();
+            $stmt->execute();}
 
             mysqli_stmt_close($stmt);
 
@@ -78,6 +87,7 @@ if ( isset($_POST["username"])
             mysqli_stmt_close($stmt);
             $_SESSION['forumuser'] = $_POST["username"];
             $_SESSION['userid'] = $userid;
+            $_SESSION['admin'] = 1;
             if (isset($_FILES["userImage"])) {
                 // prepare the user image for upload
                 $target_dir = "../userimages/";

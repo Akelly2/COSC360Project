@@ -5,6 +5,7 @@ if(!isset($_SESSION))
     session_start();
     $user = $_SESSION["forumuser"];
 }
+$_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 $postid = $_POST['postid'];
 $isparent = true;
 $conn = DB::getConnection() or
