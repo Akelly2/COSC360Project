@@ -35,17 +35,16 @@ $threads = $result;
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
         <link rel="stylesheet" href="style/general.css" />
-        <link rel="stylesheet" href="style/form.css" />
     </head>
     <body>
         <?php include 'header.php'; ?>
-        <div id="sidebar">
+        <section id="sidebar">
             <form id="search" action="index.php" method="GET">
                 <input type="text" name="searchterms" placeholder="search" />
                 <input style="visibility: hidden; width:1px; height: 1px; margin:0;" type="submit" value="Go" />
             </form>
             <a class="speciallink" href="create.php">Submit a new post</a>
-        </div>
+        </section>
         <section id="links">
         <?php foreach ($threads as $thread) { ?>
             <a class="clickablebox" href="thread.php?postid=<?= $thread[0]?>" ?>

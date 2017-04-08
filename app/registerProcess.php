@@ -14,11 +14,11 @@ if ( isset($_POST["username"])
     $e = $_POST["email"];
     $p = $_POST["password"];
     if (!preg_match('/^([a-zA-Z.0-9])+[^+,!@#$%^&*(): \t\n;\/|<>"\']$/', $u))
-        echo 'contains characters other than letters and numbers.';
-    if (!preg_match('/^([a-zA-Z.0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"\']$/', $e))
-        echo 'contains characters other than letters and numbers.';
+        header('Location: ../register.php?registererr=1');
+    if (!preg_match('/^([a-zA-Z._0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"\']$/', $e))
+        header('Location: ../register.php?registererr=1');
     if (!preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/', $p))
-        echo 'contains characters other than letters and numbers.';
+        header('Location: ../register.php?registererr=1');
 
     $sql = "SELECT username, email
             FROM User
@@ -31,13 +31,13 @@ if ( isset($_POST["username"])
         if (!empty($row)) {
             if (in_array($_POST["email"], $row) && in_array($_POST["username"], $row)) {
                 // email and username exist error
-                header('Location: ../register.php?registererr=1');
+                header('Location: ../register.php?registererr=7');
             } elseif (in_array($_POST["username"], $row)) {
                 // username exists error
-                header('Location: ../register.php?registererr=2');
+                header('Location: ../register.php?registererr=8');
             } elseif (in_array($_POST["email"], $row)) {
                 // email exists error
-                header('Location: ../register.php?registererr=3');
+                header('Location: ../register.php?registererr=9');
             }
         } else {
             if (file_exists($_FILES['userImage']['tmp_name']) || is_uploaded_file($_FILES['userImage']['tmp_name'])) {

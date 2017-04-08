@@ -15,7 +15,6 @@ if (!empty($_GET['loginerr'])){
         <title>Login</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
-        <link rel="stylesheet" href="style/form.css" />
         <link rel="stylesheet" href="style/general.css" />
         <script type="text/javascript" src="script/loginValidation.js"></script>
     </head>

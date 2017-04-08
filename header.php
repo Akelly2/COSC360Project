@@ -18,12 +18,13 @@ if(!isset($_SESSION))
 
         <?php } elseif ( !empty($_SESSION['forumuser']) ) { ?>
 
-            <?php if (($_SESSION['admin']) ===1) { ?>
+            <?php if (($_SESSION['admin']) === 1) { // yeah PHP ?>
                     <a class="HFlink" href="adminuserlist.php">Users</a>
                 <?php } ?>
                 <a class="HFlink" href="editprofile.php">Account</a>
                 <a class="HFlink" href="app/logout.php">Logout</a>
         <?php } ?>
+        
 
     </nav>
 </header>

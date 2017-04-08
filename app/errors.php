@@ -14,7 +14,10 @@ $registererr = [
     'Email already in use.',
     'Uploaded image is too large',
     'File type not supported for uploaded image.',
-    'Miscellaneous file error.'
+    'Miscellaneous file error.',
+    "Username must contain only alphanumeric characters, '.', '_' .",
+    "Please enter a valid email address.",
+    "Password must contain at least one lower case letter, one upper case letter, and one number.",
 
 ];
 

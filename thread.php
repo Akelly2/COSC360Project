@@ -47,9 +47,10 @@ $parents = DB::get_result($stmt);
         <title>MyForum</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
-        <link rel="stylesheet" href="style/form.css" />
         <link rel="stylesheet" href="style/general.css" />
         <script type="text/javascript" src="script/reply.js"></script>
+        <script type="text/javascript" src="script/collapse.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     </head>
     <body>
         <?php include 'header.php'; ?>
@@ -73,7 +74,7 @@ $parents = DB::get_result($stmt);
                 Posted by: <?= $user[1] ?>
             </p>
             <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
-            <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?postid=<?= $mainpost[0] ?>">
+            <a class="deletebutton" href="app/delete.php?postid=<?= $mainpost[0] ?>">
                 Delete
             </a>
             <?php } ?>
@@ -85,13 +86,16 @@ $parents = DB::get_result($stmt);
 
         <?php
         // loop through each top level comment
-        foreach ($parents as $parent) {
+        foreach ($parents as $parent):
              ?>
+            <p>
+                <button onclick="collapsethread(<?= $parent[0] ?>)" class="collapsebutton" id="collapsebutton<?= $parent[0] ?>">&#9660;</button>
+            </p>
             <div id="<?= $parent[0] ?>" class="parent">
                 <p class="details"><?= $parent[1] ?></p>
                 <p>Submitted <?= '' ?> by <?= $parent[3] ?></p>
                 <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
-                <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?commentid=<?= $parent[0] ?>">
+                <a class="deletebutton" href="app/delete.php?commentid=<?= $parent[0] ?>">
                     Delete
                 </a>
                 <?php } ?>
@@ -115,25 +119,25 @@ $parents = DB::get_result($stmt);
             $descendants = DB::get_result($stmt);
 
             // loop through each direct reply to each parent comment and append
-            foreach ($descendants as $descendant) {
+            foreach ($descendants as $descendant):
                 ?>
                 <div class="desc">
                     <p id="<?= $descendant[0] ?>"><?= $descendant[1] ?></p>
                     <p class="details">Submitted <?= '' ?> by <?= $descendant[3] ?></p>
                     <?php if (isset($_SESSION['admin']) && ($_SESSION['admin']) == 1) { ?>
-                    <a class="specialbutton" style="background-color:#ec6d6d; color:white" href="app/delete.php?commentid=<?= $descendant[0] ?>">Delete</a>
+                    <a class="deletebutton" href="app/delete.php?commentid=<?= $descendant[0] ?>">Delete</a>
                     <?php } ?>
                 </div>
 
-        <?php } ?>
+        <?php endforeach; ?>
             </div>
-        <?php }
+        <?php endforeach;
 
         if (isset($_SESSION['forumuser'])) {
         ?>
             <div>
                 <button class="specialbutton" onclick="showcommentform()">Comment</button>
-                <form class="replyformhidden" id="parent" method="POST" action="app/addComment.php">
+                <form class="replyformhidden" id="addcomment" method="POST" action="app/addComment.php">
                     <input type="hidden" name="postid" value="<?= $postid ?>" />
                     <textarea name="commenttext"></textarea>
                     <input  class="specialbutton"  type="submit" value="Submit Comment" />

@@ -15,10 +15,9 @@ if ( !empty($_SESSION['forumuser']) ) {
         <title>Register</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="style/reset.css" />
-        <link rel="stylesheet" href="style/form.css" />
         <link rel="stylesheet" href="style/general.css" />
         <script type="text/javascript" src="script/registerValidation.js"></script>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     </head>
     <body>
         <?php include 'header.php'; ?>

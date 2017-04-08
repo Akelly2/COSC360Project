@@ -41,10 +41,10 @@ function validate(e) {
     if (name.match(/^([a-zA-Z.0-9])+[^+,!@#$%^&*(): \t\n;\/|<>"']$/) == null) {
         e.preventDefault();
         document.getElementById("pleasefillname")
-        .innerHTML = "Please enter a valid username.";
+        .innerHTML = "Username must contain only alphanumeric characters, '.', '_' .";
 	}
 
-    if (email.match(/^([a-zA-Z.0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"']$/) == null) {
+    if (email.match(/^([a-zA-Z._0-9])+\@([a-zA-Z.])+[^+,!@#$%^&*(): \t\n;\/|<>"']$/) == null) {
         e.preventDefault();
         document.getElementById("pleasefillemail")
         .innerHTML = "Please enter a valid email address.";

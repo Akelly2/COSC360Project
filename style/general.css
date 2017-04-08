@@ -140,16 +140,21 @@
         transition: background-color 0.2s ease-in-out;
     }
 
-    .parent p {
+    .parent p, .collapsed p {
         font-size: 0.8em;
         padding-bottom: .5em;
 
     }
 
-    .parent, .desc{
+    .parent, .desc, .collapsed{
         padding: .5em 0 .5em 1em;
         margin: .5em;
         border-left: 1px solid #d4d4d4;
+    }
+
+
+    .collapsebutton {
+        color:inherit;
     }
 
     .textpost {
@@ -264,7 +269,6 @@
     .formE {
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 10px;
         padding: .5em .5em;
     }
 
@@ -345,7 +349,7 @@
         font-size: .7em;
         border: 1px solid #d5d2d2;
         border-radius: 5px;
-        margin: .2em 0 .2em 0;
+        margin: .2em 0;
     }
 
     .specialbutton:active {
@@ -370,6 +374,25 @@
         text-decoration: none;
     }
 
+    .deletebutton {
+        background-color:#ec6d6d;
+        color:white;
+
+        padding: .2em;
+        font-size: .7em;
+        border: 0;
+        border-radius: 5px;
+        margin: .4em .4em .2em 0;
+    }
+
+    .deletebutton:visited {
+        color:white;
+    }
+
+    .deletebutton:active {
+        cursor: pointer;
+        text-decoration: none;
+    }
 
     .terms {
     }
@@ -412,12 +435,12 @@
 
 
     header, footer {
-    font-size: .85em;
-    padding: 1em 0 1em 0;
-    background-color: #2a2a2a;
-    color: #d9d9d9;
-    text-align: center;
-    text-decoration: none;
+        font-size: .85em;
+        padding: 1em 0 1em 0;
+        background-color: #2a2a2a;
+        color: #d9d9d9;
+        text-align: center;
+        text-decoration: none;
     }
 
     footer {
@@ -548,17 +571,24 @@
         transition: background-color 0.2s ease-in-out;
     }
 
-    .parent p {
+    .parent p, .collapsed p {
         font-size: 0.8em;
         padding-bottom: .5em;
 
     }
 
-    .parent, .desc{
+    .parent, .desc, .collapsed{
         padding: .5em 0 .5em 1em;
         margin: .5em;
         border-left: 1px solid #d4d4d4;
     }
+
+
+    .collapsebutton {
+        color:inherit;
+    }
+    /* 9658 for right
+       9660 for down*/
 
     .textpost {
         margin-bottom: .8em;
@@ -784,6 +814,25 @@
         text-decoration: none;
     }
 
+    .deletebutton {
+        background-color:#ec6d6d;
+        color:white;
+
+        padding: .2em;
+        font-size: .7em;
+        border: 0;
+        border-radius: 5px;
+        margin: .4em .4em .2em 0;
+    }
+
+    .deletebutton:visited {
+        color:white;
+    }
+
+    .deletebutton:active {
+        cursor: pointer;
+        text-decoration: none;
+    }
 
     .terms {
     }
