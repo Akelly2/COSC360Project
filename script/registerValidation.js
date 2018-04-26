@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded', checkSubmit, false);
 
 function checkSubmit() {
+    
+	// for when things are valid
     document.forms[0].addEventListener("submit", validate);
+	
+	// for when things are invalid
 	document.forms[0].elements['email'].oninput = function() {
-        document.getElementById("pleasefillemail")
-        .innerHTML = "";
+		document.getElementById("pleasefillemail")
+		.innerHTML = "";
 	}
 	document.forms[0].elements['username'].oninput = function() {
-        document.getElementById("pleasefillname")
-        .innerHTML = "";
+		document.getElementById("pleasefillname")
+		.innerHTML = "";
 	}
     document.forms[0].elements['password'].oninput = function() {
         document.getElementById("pleasefillpass")
